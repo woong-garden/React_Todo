@@ -8,8 +8,21 @@ function Input({setTodos}) {
     const [contents, setContents] = useState('');
 
     const handleSubmitClick = (event) => {
+    
         //form테그 새로고침 방지
         event.preventDefault();
+
+        if (!title){
+            alert('제목을 입려해주세요')
+            
+            return document.getElementById('title').focus();
+        }
+
+        if (!contents){
+            alert('내용을 입려해주세요')
+            return document.getElementById('contents').focus();
+        }
+
 
         //newTodo 작성
         const newTodo = {
@@ -23,6 +36,7 @@ function Input({setTodos}) {
             return [...prev, newTodo]
         })
 
+        //input값 초기화
         setTitle('');
         setContents('');
 
@@ -40,8 +54,8 @@ function Input({setTodos}) {
     return(
         <section>
             <form onSubmit={handleSubmitClick}>
-                제목: <input name="title" value={title} onChange={handleTitleChange}/>
-                내용: <input name="content" value={contents} onChange={handleContentChange}/>
+                제목: <input id="title" value={title} onChange={handleTitleChange}/>
+                내용: <input id="contents" value={contents} onChange={handleContentChange}/>
                 <button>추가</button>
             </form>
         </section>

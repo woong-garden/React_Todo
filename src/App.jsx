@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Input from './components/Input/Input';
 import TodoList from './components/TodoList/TodoList';
+import Footer from './components/Footer/Footer';
 import { useState } from 'react';
 import {v4 as uuidv4} from 'uuid';
 
@@ -27,7 +28,8 @@ function App() {
         <TodoList isActive={true} todos={todos} setTodos={setTodos}/>
         <TodoList isActive={false} todos={todos} setTodos={setTodos}/>
       </main>
-      <footer>푸터입니다</footer>
+
+      <Footer>푸터입니다</Footer>
     </div>
   );
 }
