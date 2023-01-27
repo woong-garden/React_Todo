@@ -23,6 +23,9 @@ function Input({setTodos}) {
             return [...prev, newTodo]
         })
 
+        setTitle('');
+        setContents('');
+
     };
 
     //onChange때문에 input안의 값이 변경될 때 실행
