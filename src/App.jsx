@@ -13,6 +13,7 @@ function App() {
 
   return (
     <div>
+      {/* 헤더 부분 */}
       <Header>헤더입니다.</Header>
       <main style={{
         padding: "20px",
@@ -33,11 +34,13 @@ function App() {
 
 export default App;
 
+// 초기값
 const initialState = [
   {
     title: '제목 1',
     contents: '내용 1',
     isDone: false,
+    //uuidv4 id가 중복되지 않기 위해 사용
     id: uuidv4(),
   },
   {

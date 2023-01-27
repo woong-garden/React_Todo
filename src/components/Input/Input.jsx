@@ -8,8 +8,10 @@ function Input({setTodos}) {
     const [contents, setContents] = useState('');
 
     const handleSubmitClick = (event) => {
+        //form테그 새로고침 방지
         event.preventDefault();
 
+        //newTodo 작성
         const newTodo = {
             title: title,
             contents: contents,
@@ -18,12 +20,12 @@ function Input({setTodos}) {
         }
         //세팅된 title과 contents를 todos에 넣어주기
         setTodos(prev => {
-            console.log(prev)
             return [...prev, newTodo]
         })
 
     };
 
+    //onChange때문에 input안의 값이 변경될 때 실행
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
     }

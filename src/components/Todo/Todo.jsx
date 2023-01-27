@@ -2,13 +2,16 @@ import React from 'react';
 
 function Todo({ item, isActive, setTodos  }) {
 
+    //prev : 이전에 값
 const handleDeleteButtonClick = () => {
+    //t.id와 같지 않은 애들만 리턴
     setTodos(prev => prev.filter(t => t.id !== item.id))
 };
 
 const handleSwitchButtonClick = () => {
     setTodos(prev => prev.map((t) => {
         if(t.id === item.id){
+            //구조분해할당으로 isDone에 있는 바뀔값만 바꿔줌
             return {...t, isDone: !t.isDone};
         }else{
             return t;
