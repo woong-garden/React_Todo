@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState,useRef } from "react"
 import {v4 as uuidv4} from 'uuid';
 
 
@@ -7,6 +7,9 @@ function Input({setTodos}) {
     const [title, setTitle] = useState('');
     const [contents, setContents] = useState('');
 
+    const inputTitle = useRef();
+    const inputContent = useRef();
+
     const handleSubmitClick = (event) => {
     
         //form테그 새로고침 방지
@@ -14,13 +17,15 @@ function Input({setTodos}) {
 
         if (!title){
             alert('제목을 입려해주세요')
+            inputTitle.current.focus();
+            return;
             
-            return document.getElementById('title').focus();
         }
 
         if (!contents){
             alert('내용을 입려해주세요')
-            return document.getElementById('contents').focus();
+            inputContent.current.focus();
+            return; 
         }
 
 
@@ -54,8 +59,8 @@ function Input({setTodos}) {
     return(
         <section>
             <form onSubmit={handleSubmitClick}>
-                제목: <input id="title" value={title} onChange={handleTitleChange}/>
-                내용: <input id="contents" value={contents} onChange={handleContentChange}/>
+                제목: <input ref={inputTitle} value={title} onChange={handleTitleChange}/>
+                내용: <input ref={inputContent} value={contents} onChange={handleContentChange}/>
                 <button>추가</button>
             </form>
         </section>
